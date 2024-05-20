@@ -13,7 +13,7 @@ def send_daily_schedule_email():
     today = timezone.now().date()
     reports = EmployeeShift.objects.filter(date=today)
     if reports.exists():
-        email_id = "s.hote936@gmail.com"
+        email_id = ""
         report_df = pd.DataFrame(
             list(
                 reports.values(
