@@ -11,22 +11,22 @@
   </head>
   <body>
     <header>
-      <button class="btn btn-info" id="index_button">Home Page</button>
-      <button class="btn btn-info" id="schedule_button">Schedule Shift</button>
+      <button class="btn btn-info" id="index_button" style="margin: 1%;">Home Page</button>
+      <button class="btn btn-info" id="schedule_button" style="margin: 1%;">Schedule Shift</button>
     </header>
-    <h1>Shift Report</h1>
+    <h1 class="h1" style="margin-left: 2%;">Shift Report</h1>
     <form method="post">
       {% csrf_token %}
       {{ form }}
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" class="btn btn-primary" style="margin: 2%;">Search</button>
     </form>
     {% if reports and from_date and to_date %}
       <table class="table">
-        <th>Employee name</th>
-        <th>Location</th>
-        <th>Date</th>
-        <th>Shift Start</th>
-        <th>Shift End</th>
+        <th scope="col">Employee name</th>
+        <th scope="col">Location</th>
+        <th scope="col">Date</th>
+        <th scope="col">Shift Start</th>
+        <th scope="col">Shift End</th>
         {% for shift in reports %}
           <tr>
             <td>{{ shift.employee.employee_name }}</td>

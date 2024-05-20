@@ -1,10 +1,10 @@
 {% for field in form %}
-  <div class="form-group row" style="margin:10px;">
+  <div class="form-group row" style="margin: 0 0 1% 2%;">
     {% if field.error %}
       {{ field.errors }}
     {% endif %}
     <div class="col-sm-2">{{ field.label }}</div>
-    <div class="col-sm-10">
+    <div class="col-sm-4">
       {{ field }}
 
       {% if field.help_text %}

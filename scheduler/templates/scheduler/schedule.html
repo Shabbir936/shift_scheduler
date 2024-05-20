@@ -11,15 +11,19 @@
   </head>
   <body>
     <header>
-      <button><a href="{% url 'scheduler:index' %}">Home Page</a></button>
-      <button><a href="{% url 'scheduler:shift_report' %}">Shift Report</a></button>
+      <button class="btn btn-info" id="index_button" style="margin: 1%;">Home Page</button>
+      <button class="btn btn-info" id="report_button" style="margin: 1%;">Shift Report</button>
     </header>
-    <h1>Schedule Shift</h1>
+    <h1 style="margin: 2%;">Schedule Shift</h1>
     <br />
     <form method="post">
       {% csrf_token %}
       {{ form }}
-      <button type="submit" class="btn btn-primary" style="margin: 2%;">Submit</button>
+      <div class="form-group row" style="margin: 0 0 1% 2%;">
+        <div class="col-sm-6">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+        </div>
+      </div>
     </form>
 
     <!-- Modal -->
@@ -44,6 +48,12 @@
                   $('#successModal').modal('show');
               {% endif %}
           });
+          document.getElementById('index_button').onclick = function () {
+            location.href = "{% url 'scheduler:index' %}"
+          };
+          document.getElementById('report_button').onclick = function () {
+            location.href = "{% url 'scheduler:shift_report' %}"
+          };
       </script>
   </body>
 </html>

@@ -11,9 +11,21 @@
 </head>
 <body>
     <header>
-        <button><a href="{% url 'scheduler:schedule_shift' %}">Schedule Shift</a></button>
-        <button><a href="{% url 'scheduler:shift_report' %}">Shift Report</a></button>
+        <button class="btn btn-info" id="schedule_button" style="margin: 1%;">Schedule Shift</a></button>
+        <button class="btn btn-info" id="report_button" style="margin: 1%;">Shift Report</a></button>
+        <button class="btn btn-info" id="admin_button" style="margin: 1%;">Admin Page</a></button>
     </header>
-    <h1>Home Page</h1>
+    <h1 style="margin-left: 2%;">Home Page</h1>
+    <script>
+        document.getElementById('schedule_button').onclick = function () {
+            location.href = "{% url 'scheduler:schedule_shift' %}"
+          };
+          document.getElementById('report_button').onclick = function () {
+            location.href = "{% url 'scheduler:shift_report' %}"
+          };
+          document.getElementById('admin_button').onclick = function () {
+            location.href = "{% url 'admin:index' %}"
+          };
+    </script>
 </body>
 </html>
